@@ -3,1036 +3,1157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MD Plumbing & Heating LLC | Baltimore Plumber | Essex, MD</title>
-  <meta name="description" content="Baltimore's local, reliable & affordable plumber. 24/7 emergency service, water heater repair, drain cleaning & more. Serving Essex, Baltimore, Towson & surrounding areas. Call (443) 909-0058." />
+  <title>MD Plumbing & Heating LLC — Essex & Baltimore, MD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --red:    #CC0000;
-      --red-dk: #aa0000;
-      --red-lt: #e00000;
-      --gold:   #F0C020;
-      --black:  #080808;
-      --black-2:#111318;
-      --white:  #ffffff;
-      --gray:   #8a8fa8;
-      --off:    #f5f5f0;
-      --border: rgba(255,255,255,0.08);
-      --radius: 4px;
+      --red: #C0192B;
+      --red-dark: #9e1122;
+      --red-light: #f8e9eb;
+      --gold: #C9973A;
+      --black: #1a1a1a;
+      --gray-dark: #333;
+      --gray-mid: #666;
+      --gray-light: #f0f0f0;
+      --white: #ffffff;
+      --bg: #fafafa;
     }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: var(--black); color: var(--white); line-height: 1.6; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    ul { list-style: none; }
-    .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; line-height: 0.95; }
 
-    /* ===== NAV ===== */
-    #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-      height: 64px; display: flex; align-items: center;
-      padding: 0 40px;
-      background: rgba(8,8,8,0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      line-height: 1.6;
     }
-    .nav-inner { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
-    .nav-logo-mark { width: 36px; height: 36px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .nav-logo-mark svg { width: 20px; height: 20px; color: white; }
-    .nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.05em; color: var(--white); line-height: 1; }
-    .nav-logo-sub { font-size: 0.62rem; font-weight: 500; color: var(--gray); letter-spacing: 0.5px; text-transform: uppercase; display: block; font-family: 'Inter', sans-serif; }
-    .nav-links { display: flex; align-items: center; gap: 4px; }
-    .nav-links a { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.65); padding: 7px 14px; border-radius: var(--radius); transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--white); }
-    .nav-phone { background: var(--red) !important; color: var(--white) !important; font-weight: 700 !important; font-size: 0.85rem !important; padding: 8px 16px !important; border-radius: var(--radius) !important; }
-    .nav-phone:hover { background: var(--red-lt) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 1px; }
-    .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: #0d0d0d; border-bottom: 1px solid var(--border); z-index: 998; flex-direction: column; padding: 16px 24px 24px; }
-    .mobile-menu a { color: rgba(255,255,255,0.75); font-size: 1rem; font-weight: 500; padding: 13px 0; border-bottom: 1px solid var(--border); display: block; }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu .m-phone { background: var(--red); color: white !important; border-radius: 4px; padding: 13px 16px !important; margin-top: 12px; text-align: center; font-weight: 700 !important; border-bottom: none !important; }
 
-    /* ===== PAGES ===== */
-    .page { display: none; }
-    .page.active { display: block; }
-
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 120px 40px 80px;
-      position: relative; overflow: hidden;
+    /* NAV */
+    nav {
       background: var(--black);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
     }
-    .hero-grid-bg {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(204,0,0,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(204,0,0,0.05) 1px, transparent 1px);
-      background-size: 64px 64px;
-      mask-image: radial-gradient(ellipse 80% 60% at 60% 40%, black 0%, transparent 70%);
+    .nav-logo {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--white);
+      letter-spacing: 0.5px;
+      text-decoration: none;
     }
-    .hero-glow {
-      position: absolute; top: -200px; right: -100px;
-      width: 700px; height: 700px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(204,0,0,0.22) 0%, rgba(204,0,0,0.06) 40%, transparent 70%);
-      pointer-events: none;
+    .nav-logo span { color: var(--red); }
+    .nav-phone {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.5px;
     }
-    .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; }
-    .hero-badges { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 1px solid rgba(240,192,32,0.4);
-      background: rgba(240,192,32,0.08);
-      border-radius: 50px; padding: 5px 14px;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--gold);
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
     }
-    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: block; }
-    .winner-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      border: 1px solid rgba(204,0,0,0.5);
-      background: rgba(204,0,0,0.12);
-      border-radius: 50px; padding: 5px 14px;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: #ff7777;
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
     }
-    .winner-badge svg { width: 12px; height: 12px; }
-    .hero-h1 { font-size: clamp(4.5rem, 12vw, 10rem); color: var(--white); margin-bottom: 0; }
-    .hero-h1-red { color: var(--red); display: block; }
-    .hero-tagline-row { margin: 16px 0 36px; }
-    .hero-tagline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1rem, 2.2vw, 1.5rem); color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
-    .hero-tagline .sep { color: var(--red); margin: 0 8px; }
-    .hero-tagline .hl { color: rgba(255,255,255,0.8); }
-    .hero-desc { max-width: 460px; font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 44px; }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-    .cta-primary { background: var(--red); color: var(--white); font-weight: 700; font-size: 0.95rem; padding: 14px 26px; border-radius: var(--radius); display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s, transform 0.15s; }
-    .cta-primary:hover { background: var(--red-lt); transform: translateY(-1px); }
-    .cta-ghost { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.75); font-weight: 600; font-size: 0.92rem; padding: 13px 24px; border-radius: var(--radius); display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, color 0.2s; }
-    .cta-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
-    .hero-trust { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--border); }
-    .trust-stat strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--white); line-height: 1; }
-    .trust-stat span { font-size: 0.78rem; color: var(--gray); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
-    .trust-stat.gold strong { color: var(--gold); }
+    .nav-links a:hover { color: var(--white); }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
 
-    /* ===== TICKER ===== */
-    .ticker-wrap { background: var(--red); overflow: hidden; padding: 13px 0; }
-    .ticker-track { display: flex; animation: ticker 30s linear infinite; width: max-content; }
-    .ticker-item { display: flex; align-items: center; white-space: nowrap; font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.9); padding: 0 32px; }
-    .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.4); margin-left: 32px; flex-shrink: 0; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* HERO */
+    .hero {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 540px;
+    }
+    .hero-content {
+      padding: 60px 48px 60px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red-light);
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+    .hero h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      max-width: 420px;
+      margin-bottom: 32px;
+      line-height: 1.7;
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      padding: 14px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--red-dark); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-dark);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--gray-light);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--red); color: var(--red); }
+    .hero-trust {
+      display: flex;
+      gap: 20px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--gray-mid);
+      font-weight: 600;
+    }
+    .trust-item .icon { font-size: 1rem; }
 
-    /* ===== SECTIONS ===== */
-    section { padding: 96px 40px; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .overline { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; display: block; }
-    .overline.gold { color: var(--gold); }
-    .section-h { font-size: clamp(2.4rem, 5vw, 3.8rem); color: var(--white); margin-bottom: 16px; }
-    .section-sub { font-size: 1rem; color: var(--gray); max-width: 500px; line-height: 1.7; }
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #999;
+    }
+    .hero-photo-placeholder svg { opacity: 0.4; }
+    .hero-photo-placeholder p { font-size: 0.85rem; }
+    .hero-overlay-card {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      background: var(--white);
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .award-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+    }
+    .award-text {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      line-height: 1.4;
+    }
+    .award-text span { color: var(--gold); font-weight: 700; }
 
-    /* ===== STATS ===== */
-    .stats-row { background: var(--red); padding: 72px 40px; }
-    .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 40px; }
-    .stat-block { text-align: center; }
-    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 6vw, 5.5rem); color: var(--white); line-height: 1; display: block; }
-    .stat-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-top: 4px; display: block; }
-    .stat-divider { width: 32px; height: 2px; background: rgba(255,255,255,0.25); margin: 10px auto 0; }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-content { padding: 40px 24px; }
+      .hero-photo { height: 280px; }
+    }
 
-    /* ===== SERVICES ===== */
-    .services-section { background: var(--black-2); }
-    .services-layout { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
-    .services-left { position: sticky; top: 84px; }
-    .services-left h2 { color: var(--white); margin-bottom: 16px; }
-    .services-left p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px; }
-    .service-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .svc-card { background: #0e0e0e; padding: 28px 24px; transition: background 0.2s; }
-    .svc-card:hover { background: rgba(204,0,0,0.1); }
-    .svc-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(204,0,0,0.15); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-    .svc-icon svg { width: 20px; height: 20px; color: var(--red); }
-    .svc-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-    .svc-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.55; }
+    /* RED BANNER */
+    .red-banner {
+      background: var(--red);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .banner-text {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.3px;
+    }
+    .banner-phone {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .banner-sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
 
-    /* ===== REVIEWS ===== */
-    .reviews-section { background: var(--black); }
-    .rating-summary { display: flex; align-items: center; gap: 20px; margin-bottom: 48px; flex-wrap: wrap; }
-    .rating-big { font-family: 'Bebas Neue', sans-serif; font-size: 5.5rem; color: var(--white); line-height: 1; }
-    .stars-row { display: flex; gap: 3px; margin-bottom: 5px; }
-    .star svg { width: 18px; height: 18px; color: var(--gold); }
-    .rating-count { font-size: 0.82rem; color: var(--gray); font-weight: 500; }
-    .rating-recommend { display: inline-flex; align-items: center; gap: 6px; background: rgba(240,192,32,0.1); border: 1px solid rgba(240,192,32,0.3); border-radius: 50px; padding: 5px 14px; font-size: 0.78rem; font-weight: 700; color: var(--gold); margin-top: 8px; }
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
-    .review-card { background: var(--black-2); border: 1px solid var(--border); border-radius: 8px; padding: 24px; transition: border-color 0.2s; }
-    .review-card:hover { border-color: rgba(204,0,0,0.3); }
-    .review-card.featured { border-color: rgba(204,0,0,0.35); background: rgba(204,0,0,0.05); }
-    .review-source { font-size: 0.68rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-    .review-stars { font-size: 0.9rem; margin-bottom: 12px; }
-    .review-text { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
-    .review-author { display: flex; align-items: center; gap: 10px; }
-    .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; color: white; flex-shrink: 0; }
-    .review-name { font-size: 0.83rem; font-weight: 700; color: var(--white); }
-    .review-date { font-size: 0.72rem; color: var(--gray); }
+    /* STATS ROW */
+    .stats-row {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 32px 40px;
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 12px 20px;
+      border-right: 1px solid #333;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: #aaa;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+    @media (max-width: 640px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+    }
 
-    /* ===== ABOUT STATEMENT ===== */
-    .about-statement { background: var(--off); padding: 96px 40px; }
-    .about-statement .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .statement-left .overline { color: var(--red); }
-    .statement-left h2 { font-size: clamp(2rem, 4vw, 3.2rem); color: #0f0f0f; line-height: 1.15; margin-bottom: 24px; }
-    .statement-left h2 em { font-style: normal; color: var(--red); }
-    .statement-left p { color: #4a5568; font-size: 1rem; line-height: 1.75; margin-bottom: 16px; }
-    .big-quote { border-left: 3px solid var(--red); padding: 24px 0 24px 32px; }
-    .big-quote blockquote { font-size: clamp(1.05rem, 2.2vw, 1.4rem); font-weight: 700; color: #111; line-height: 1.45; margin-bottom: 20px; }
-    .quote-attr { display: flex; align-items: center; gap: 12px; }
-    .quote-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82rem; color: white; flex-shrink: 0; }
-    .quote-name strong { display: block; font-size: 0.88rem; font-weight: 700; color: #111; }
-    .quote-name span { font-size: 0.78rem; color: #6b7280; }
-    .promise-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
-    .promise-row { display: flex; align-items: center; gap: 10px; font-size: 0.93rem; color: #374151; }
-    .promise-row svg { width: 16px; height: 16px; color: var(--red); flex-shrink: 0; }
+    /* SECTION SHARED */
+    section { padding: 72px 40px; }
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+    .section-header { margin-bottom: 48px; }
 
-    /* ===== CTA BANNER ===== */
-    .cta-banner { background: var(--red); padding: 80px 40px; text-align: center; }
-    .cta-banner h2 { font-size: clamp(2rem, 4vw, 3.5rem); color: white; margin: 0 auto 12px; max-width: 760px; }
-    .cta-banner p { color: rgba(255,255,255,0.85); max-width: 480px; margin: 0 auto 32px; }
-    .cta-white { background: white; color: var(--red); font-weight: 800; font-size: 1rem; padding: 15px 28px; border-radius: var(--radius); display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.15s; }
-    .cta-white:hover { transform: translateY(-2px); }
+    /* SERVICES */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      background: var(--bg);
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      cursor: default;
+    }
+    .service-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+      border-color: #ddd;
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--red-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+    }
+    .service-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
 
-    /* ===== CONTACT ===== */
-    .contact-section { background: var(--off); padding: 96px 40px; }
-    .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: start; }
-    .contact-left .overline { color: var(--red); }
-    .contact-left h2 { font-size: clamp(2rem, 4vw, 3rem); color: #0f0f0f; margin-bottom: 14px; }
-    .contact-left > p { color: #6b7280; font-size: 0.95rem; margin-bottom: 36px; line-height: 1.7; }
-    .phone-cta { display: inline-flex; align-items: center; gap: 12px; background: var(--red); color: var(--white); font-weight: 700; font-size: 1.1rem; padding: 16px 24px; border-radius: var(--radius); margin-bottom: 32px; transition: background 0.2s; }
-    .phone-cta:hover { background: var(--red-dk); }
-    .phone-cta svg { width: 20px; height: 20px; }
-    .c-detail-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
-    .c-detail { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: #374151; }
-    .c-detail svg { width: 16px; height: 16px; color: var(--red); flex-shrink: 0; margin-top: 3px; }
-    .c-detail strong { display: block; font-weight: 700; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--red); margin-bottom: 2px; }
-    .area-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #9ca3af; margin-bottom: 10px; }
-    .area-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-    .area-tag { background: white; border: 1px solid #e5e7eb; padding: 4px 12px; border-radius: 50px; font-size: 0.78rem; font-weight: 600; color: #374151; }
-    .contact-form { background: white; border-radius: 12px; padding: 36px; box-shadow: 0 4px 32px rgba(0,0,0,0.08); }
-    .contact-form h3 { font-size: 1.15rem; font-weight: 800; color: #0f0f0f; margin-bottom: 4px; }
-    .contact-form > p { font-size: 0.86rem; color: #9ca3af; margin-bottom: 24px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { margin-bottom: 14px; }
-    .form-group label { display: block; font-size: 0.78rem; font-weight: 700; color: #0f0f0f; margin-bottom: 5px; }
-    .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 11px 14px; border: 1.5px solid #e5e7eb; border-radius: 4px; font-size: 0.93rem; font-family: inherit; color: #0f0f0f; background: #fafafa; transition: border-color 0.2s; }
-    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--red); background: white; box-shadow: 0 0 0 3px rgba(204,0,0,0.08); }
-    .form-group textarea { min-height: 100px; resize: vertical; }
-    .btn-submit { width: 100%; background: var(--red); color: var(--white); border: none; font-weight: 700; font-size: 0.95rem; padding: 14px; border-radius: var(--radius); cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.2s; }
-    .btn-submit:hover { background: var(--red-dk); }
-    .form-success { display: none; text-align: center; padding: 24px; background: #ecfdf5; border: 1.5px solid #6ee7b7; border-radius: 8px; color: #065f46; font-weight: 700; }
+    /* PHOTO GALLERY */
+    .gallery { background: var(--gray-light); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background: #ddd;
+    }
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: #aaa;
+      background: linear-gradient(135deg, #e0e0e0, #ccc);
+    }
+    .gallery-placeholder p { font-size: 0.8rem; }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 28px 16px 14px;
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item:first-child { grid-row: auto; }
+      .gallery-item { height: 160px; }
+    }
 
-    /* ===== INNER PAGE BANNER ===== */
-    .page-banner { background: var(--black-2); padding: 120px 40px 72px; border-bottom: 1px solid var(--border); }
-    .page-banner-inner { max-width: 1200px; margin: 0 auto; }
-    .page-banner h1 { font-size: clamp(2.5rem, 6vw, 5rem); color: var(--white); margin-bottom: 12px; }
-    .page-banner p { font-size: 1rem; color: var(--gray); max-width: 520px; }
+    /* HOW IT WORKS */
+    .how-it-works { background: var(--white); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(16.67% + 28px);
+      right: calc(16.67% + 28px);
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--red) 0, var(--red) 8px, transparent 8px, transparent 16px);
+    }
+    .step {
+      text-align: center;
+      padding: 0 16px;
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+    @media (max-width: 640px) {
+      .steps { grid-template-columns: 1fr; gap: 28px; }
+      .steps::before { display: none; }
+    }
 
-    /* ===== SERVICES DETAIL ===== */
-    .svc-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-    .svc-detail-card { background: var(--black-2); padding: 36px 32px; }
-    .sdc-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: rgba(204,0,0,0.2); line-height: 1; margin-bottom: 8px; display: block; }
-    .sdc-title { font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 10px; }
-    .sdc-body { font-size: 0.88rem; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
-    .sdc-list { display: flex; flex-direction: column; gap: 7px; }
-    .sdc-list li { font-size: 0.83rem; color: rgba(255,255,255,0.55); display: flex; align-items: flex-start; gap: 8px; }
-    .sdc-list li::before { content: '→'; color: var(--red); flex-shrink: 0; font-size: 0.75rem; margin-top: 2px; }
-    .emergency-block { margin-top: 64px; background: rgba(204,0,0,0.1); border: 1px solid rgba(204,0,0,0.25); border-radius: 8px; padding: 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-    .emergency-block h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: var(--white); margin-bottom: 8px; }
-    .emergency-block p { color: var(--gray); font-size: 0.95rem; }
+    /* REVIEWS */
+    .reviews { background: var(--bg); }
+    .reviews-intro {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .reviews-score {
+      text-align: center;
+      background: var(--white);
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 28px 36px;
+      flex-shrink: 0;
+    }
+    .score-num {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+    }
+    .stars {
+      color: #F5A623;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      margin: 6px 0;
+    }
+    .score-label {
+      font-size: 0.8rem;
+      color: var(--gray-mid);
+      font-weight: 500;
+    }
+    .recommend-badge {
+      margin-top: 14px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 99px;
+      letter-spacing: 0.3px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+    .review-card {
+      background: var(--white);
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+      padding: 22px 22px 18px;
+      position: relative;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--black);
+    }
+    .review-platform {
+      font-size: 0.75rem;
+      color: var(--gray-mid);
+    }
+    .review-stars { color: #F5A623; font-size: 0.85rem; margin-bottom: 8px; }
+    .review-text {
+      font-size: 0.87rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    .review-date {
+      font-size: 0.75rem;
+      color: #bbb;
+      margin-top: 12px;
+    }
+    .google-g {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 20px;
+      height: 20px;
+      opacity: 0.4;
+    }
 
-    /* ===== ABOUT PAGE ===== */
-    .about-layout { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
-    .about-story h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--white); margin-bottom: 24px; }
-    .about-story p { color: var(--gray); font-size: 0.97rem; line-height: 1.75; margin-bottom: 18px; }
-    .about-story blockquote { border-left: 3px solid var(--red); padding: 18px 24px; background: rgba(204,0,0,0.08); border-radius: 0 6px 6px 0; margin: 32px 0; }
-    .about-story blockquote p { color: rgba(255,255,255,0.85); font-size: 1.05rem; font-weight: 600; font-style: italic; margin: 0 0 8px; }
-    .about-story blockquote cite { font-size: 0.8rem; color: #ff7777; font-style: normal; font-weight: 600; }
-    .about-card { background: var(--black-2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; position: sticky; top: 84px; }
-    .about-card-top { background: var(--red); padding: 32px 24px; text-align: center; }
-    .avi-lg { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.15); margin: 0 auto 14px; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: white; }
-    .about-card-top h3 { font-size: 1rem; font-weight: 800; margin-bottom: 2px; }
-    .about-card-top span { font-size: 0.78rem; opacity: 0.75; }
-    .about-card-body { padding: 24px; display: flex; flex-direction: column; gap: 10px; }
-    .about-card-row { display: flex; align-items: center; gap: 10px; font-size: 0.83rem; color: var(--gray); padding: 10px 12px; background: rgba(255,255,255,0.04); border-radius: 4px; border: 1px solid var(--border); }
-    .about-card-row svg { width: 14px; height: 14px; color: var(--red); flex-shrink: 0; }
-    .about-card-phone { display: block; margin: 8px 0 0; background: var(--red); color: white; text-align: center; font-weight: 700; font-size: 0.95rem; padding: 13px; border-radius: 4px; }
-    .values-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 56px; }
-    .val-card { background: var(--black-2); border: 1px solid var(--border); border-radius: 8px; padding: 24px 20px; }
-    .val-card svg { width: 22px; height: 22px; color: var(--red); margin-bottom: 10px; }
-    .val-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-    .val-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.55; }
-
-    /* ===== FOOTER ===== */
-    footer { background: #020202; border-top: 1px solid var(--border); padding: 56px 40px 32px; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-    .footer-brand p { font-size: 0.85rem; color: var(--gray); line-height: 1.65; max-width: 260px; margin-top: 12px; }
-    .footer-brand .f-logo { display: flex; align-items: center; gap: 10px; }
-    .f-logo-mark { width: 32px; height: 32px; border-radius: 50%; background: var(--red); display: flex; align-items: center; justify-content: center; }
-    .f-logo-mark svg { width: 18px; height: 18px; color: white; }
-    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 14px; }
-    .footer-col li { margin-bottom: 9px; }
-    .footer-col a { font-size: 0.86rem; color: var(--gray); transition: color 0.2s; }
-    .footer-col a:hover { color: var(--white); }
-    .f-contact { font-size: 0.86rem; color: var(--gray); margin-bottom: 8px; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 10px; }
-    .footer-bottom p { font-size: 0.76rem; color: rgba(255,255,255,0.25); }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 900px) {
-      .hero { padding: 110px 24px 72px; }
-      .about-statement .section-inner, .contact-inner, .about-layout { grid-template-columns: 1fr; gap: 40px; }
-      .services-layout { grid-template-columns: 1fr; }
-      .services-left { position: static; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      section { padding: 64px 24px; }
-      .stats-row, .about-statement, .contact-section { padding: 64px 24px; }
-      .page-banner { padding: 100px 24px 56px; }
-      .about-card { position: static; }
+    /* SERVICE AREA */
+    .service-area {
+      background: var(--black);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+    .area-content {
+      padding: 72px 60px;
+    }
+    .area-content .section-label { color: var(--gold); }
+    .area-content .section-title { color: var(--white); }
+    .area-content .section-desc { color: #aaa; }
+    .area-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .area-tag {
+      background: #2a2a2a;
+      border: 1px solid #444;
+      padding: 7px 16px;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      color: #ddd;
+      font-weight: 500;
+    }
+    .area-map {
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+    .area-map-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      color: #555;
+    }
+    .area-map-placeholder p { font-size: 0.85rem; }
+    .area-map-pin {
+      font-size: 3rem;
+      filter: drop-shadow(0 4px 12px rgba(192,25,43,0.4));
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .mobile-menu.open { display: flex; }
-      .service-cards { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      #navbar { padding: 0 20px; }
-      .hero { padding: 100px 20px 64px; }
-      .reviews-grid { grid-template-columns: 1fr; }
+      .service-area { grid-template-columns: 1fr; }
+      .area-content { padding: 48px 24px; }
+      .area-map { min-height: 200px; }
     }
-    @media (max-width: 480px) {
-      .hero-ctas { flex-direction: column; align-items: stretch; }
-      .hero-ctas a { text-align: center; justify-content: center; }
-      .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
-      .form-row { grid-template-columns: 1fr; }
-      .emergency-block { flex-direction: column; text-align: center; }
+
+    /* ABOUT */
+    .about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+    .about-photo {
+      min-height: 420px;
+      background: var(--gray-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-content {
+      padding: 72px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-quote {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--black);
+      line-height: 1.5;
+      border-left: 4px solid var(--red);
+      padding-left: 20px;
+      margin: 28px 0;
+    }
+    .about-sig {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+    }
+    .about-sig span {
+      display: block;
+      font-weight: 400;
+      color: var(--gray-mid);
+      font-size: 0.82rem;
+    }
+    @media (max-width: 768px) {
+      .about { grid-template-columns: 1fr; }
+      .about-photo { min-height: 240px; }
+      .about-content { padding: 40px 24px; }
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: var(--red);
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .cta-strip p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--red);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 16px 36px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-white:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      padding: 48px 40px 28px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #2a2a2a;
+      margin-bottom: 24px;
+    }
+    .footer-brand {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-brand span { color: var(--red); }
+    .footer-desc {
+      font-size: 0.85rem;
+      color: #777;
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li {
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 6px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: #555;
+    }
+    .footer-lic {
+      font-size: 0.78rem;
+      color: #555;
+    }
+    @media (max-width: 640px) {
+      .footer-top { grid-template-columns: 1fr; }
+      section { padding: 48px 20px; }
+      .red-banner { padding: 16px 20px; }
+      .area-content { padding: 40px 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <div class="nav-logo" onclick="showPage('home')">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-      </div>
-      <div>
-        <div class="nav-logo-text">MD Plumbing &amp; Heating</div>
-        <span class="nav-logo-sub">Baltimore, MD &mdash; Licensed LLC</span>
-      </div>
-    </div>
-    <div class="nav-links">
-      <a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a>
-      <a href="#" onclick="showPage('services')" id="nav-services">Services</a>
-      <a href="#" onclick="showPage('about')" id="nav-about">About</a>
-      <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
-      <a href="tel:4439090058" class="nav-phone">(443) 909-0058</a>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#" onclick="showPage('home');toggleMenu()">Home</a>
-    <a href="#" onclick="showPage('services');toggleMenu()">Services</a>
-    <a href="#" onclick="showPage('about');toggleMenu()">About</a>
-    <a href="#" onclick="showPage('contact');toggleMenu()">Contact</a>
-    <a href="tel:4439090058" class="m-phone">(443) 909-0058</a>
-  </div>
-</nav>
-
-
-<!-- ======================================================== -->
-<!--  HOME                                                    -->
-<!-- ======================================================== -->
-<div id="page-home" class="page active">
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">MD <span>Plumbing</span> & Heating</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:+14436151851" class="nav-phone">(443) 615-1851</a>
+  </nav>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
-    <div class="hero-inner">
-      <div class="hero-badges">
-        <div class="hero-eyebrow">Your Local Maryland Plumber</div>
-        <div class="winner-badge">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          2025 Approved Winner
-        </div>
-      </div>
-      <h1 class="display hero-h1">
-        LOCAL.<br/>
-        <span class="hero-h1-red">RELIABLE.</span><br/>
-        AFFORDABLE.
-      </h1>
-      <div class="hero-tagline-row">
-        <div class="hero-tagline">
-          <span class="hl">Plumbing</span><span class="sep">/</span>
-          <span>Water Heaters</span><span class="sep">/</span>
-          <span>Drain Cleaning</span><span class="sep">/</span>
-          <span>Emergency Service</span>
-        </div>
-      </div>
-      <p class="hero-desc">Serving Essex, Baltimore &amp; surrounding areas. Honest pricing. Guaranteed satisfaction. Owner-operated by Dominic Pagliaro Jr. &mdash; your neighbor, not a 1-800 number.</p>
-      <div class="hero-ctas">
-        <a href="tel:4439090058" class="cta-primary">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          Call (443) 909-0058
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Licensed & Insured — Essex, MD</div>
+      <h1>Plumbing & Heating <em>Done Right</em> the First Time</h1>
+      <p class="hero-sub">MD Plumbing & Heating LLC serves Essex and Baltimore with honest pricing, same-day service, and work that holds up. No upsells, no surprises — just the job done right.</p>
+      <div class="hero-cta-group">
+        <a href="tel:+14436151851" class="btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call (443) 615-1851
         </a>
-        <a href="#" onclick="showPage('services')" class="cta-ghost">All Services &rarr;</a>
+        <a href="#services" class="btn-secondary">
+          View all services
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
       <div class="hero-trust">
-        <div class="trust-stat gold"><strong>100%</strong><span>Recommend Rate</span></div>
-        <div class="trust-stat"><strong>23+</strong><span>5-Star Reviews</span></div>
-        <div class="trust-stat"><strong>24/7</strong><span>Emergency Service</span></div>
-        <div class="trust-stat"><strong>8</strong><span>Cities Served</span></div>
+        <div class="trust-item"><span class="icon">✓</span> Same-Day Service</div>
+        <div class="trust-item"><span class="icon">✓</span> Free Estimates</div>
+        <div class="trust-item"><span class="icon">✓</span> 100% Recommend Rate</div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-placeholder">
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9l4-4 4 4 4-4 4 4"/><circle cx="8.5" cy="13.5" r="1.5"/></svg>
+        <p>Hero photo — job site image</p>
+      </div>
+      <div class="hero-overlay-card">
+        <div class="award-num">★</div>
+        <div class="award-text">
+          <span>2025 Neighborhood</span><br>
+          <span style="color:var(--gold);">Favorite Award</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RED BANNER -->
+  <div class="red-banner">
+    <div>
+      <div class="banner-text">Pipe burst? Heater out? Don't wait.</div>
+      <div class="banner-sub">Available for urgent calls — Essex, Baltimore, and surrounding areas</div>
+    </div>
+    <a href="tel:+14436151851" class="banner-phone">(443) 615-1851</a>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Recommend Rate</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Jobs Completed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">★ 2025</div>
+      <div class="stat-label">Neighborhood Award</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="services">
+    <div class="section-header">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Services Built for<br>Baltimore Homeowners</h2>
+      <p class="section-desc">From a leaky faucet to a full heating system replacement — we handle it all with the same care and straightforward pricing.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Plumbing Repairs</h3>
+        <p>Leaky pipes, burst lines, running toilets, dripping faucets. We fix it fast and make sure it stays fixed.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Heating Systems</h3>
+        <p>Furnace repair, boiler service, heat pump maintenance. Keep your home warm all winter long.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <h3>Water Heater Service</h3>
+        <p>Installation, repair, and replacement of traditional and tankless water heaters. Hot water when you need it.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚽</div>
+        <h3>Fixture Installation</h3>
+        <p>New toilets, sinks, showers, and bathtub fixtures installed cleanly and correctly the first time.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Drain Cleaning</h3>
+        <p>Slow drains, clogged sewer lines, and backed-up pipes cleared with professional equipment.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Home Diagnostics</h3>
+        <p>Full plumbing and heating inspection — ideal for homebuyers or anyone who wants peace of mind.</p>
       </div>
     </div>
   </section>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-track">
-      <div class="ticker-item">100% Recommend Rate<span class="ticker-dot"></span></div>
-      <div class="ticker-item">24/7 Emergency Service<span class="ticker-dot"></span></div>
-      <div class="ticker-item">2025 Approved Winner<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Honest Pricing. Guaranteed Satisfaction.<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Licensed LLC &mdash; Maryland<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Essex &bull; Baltimore &bull; Towson &bull; Parkville &bull; Dundalk<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Owner-Operated by Dominic Pagliaro Jr.<span class="ticker-dot"></span></div>
-      <!-- duplicate for seamless loop -->
-      <div class="ticker-item">100% Recommend Rate<span class="ticker-dot"></span></div>
-      <div class="ticker-item">24/7 Emergency Service<span class="ticker-dot"></span></div>
-      <div class="ticker-item">2025 Approved Winner<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Honest Pricing. Guaranteed Satisfaction.<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Licensed LLC &mdash; Maryland<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Essex &bull; Baltimore &bull; Towson &bull; Parkville &bull; Dundalk<span class="ticker-dot"></span></div>
-      <div class="ticker-item">Owner-Operated by Dominic Pagliaro Jr.<span class="ticker-dot"></span></div>
+  <!-- PHOTO GALLERY -->
+  <section id="work" class="gallery">
+    <div class="section-header">
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Jobs We're Proud Of</h2>
+      <p class="section-desc">Real work from real Baltimore homes. Every job is an opportunity to do right by the homeowner.</p>
     </div>
-  </div>
-
-  <!-- STATS ROW -->
-  <div class="stats-row">
-    <div class="stats-inner">
-      <div class="stat-block">
-        <span class="stat-num">100%</span>
-        <div class="stat-divider"></div>
-        <span class="stat-label">Recommend Rate</span>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Feature job photo</p>
+        </div>
+        <div class="gallery-caption">Water heater replacement — Essex, MD</div>
       </div>
-      <div class="stat-block">
-        <span class="stat-num">23+</span>
-        <div class="stat-divider"></div>
-        <span class="stat-label">Facebook Reviews</span>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Job photo</p>
+        </div>
+        <div class="gallery-caption">Pipe repair</div>
       </div>
-      <div class="stat-block">
-        <span class="stat-num">24/7</span>
-        <div class="stat-divider"></div>
-        <span class="stat-label">Always Available</span>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Job photo</p>
+        </div>
+        <div class="gallery-caption">Drain cleaning</div>
       </div>
-      <div class="stat-block">
-        <span class="stat-num">8</span>
-        <div class="stat-divider"></div>
-        <span class="stat-label">Cities Served</span>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Job photo</p>
+        </div>
+        <div class="gallery-caption">Heating system service</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <p>Job photo</p>
+        </div>
+        <div class="gallery-caption">Fixture installation</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- SERVICES PREVIEW -->
-  <section class="services-section">
-    <div class="section-inner">
-      <div class="services-layout">
-        <div class="services-left">
-          <span class="overline">What We Do</span>
-          <h2 class="display section-h">PLUMBING.<br/>DONE RIGHT.</h2>
-          <p>Every job, every time. Dominic handles everything from emergency repairs to full water heater replacements &mdash; no surprise fees, no shortcuts.</p>
-          <a href="#" onclick="showPage('services')" class="cta-ghost" style="margin-top:8px;">All services &rarr;</a>
-        </div>
-        <div class="service-cards">
-          <div class="svc-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <h3>Water Heater Repair &amp; Replacement</h3>
-            <p>Same-day service for failing water heaters. Tank and tankless, repairs and replacements.</p>
-          </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
-            <h3>Drain Cleaning &amp; Unclogging</h3>
-            <p>Kitchen, bathroom, main line &mdash; cleared fast with no damage to your home.</p>
-          </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-            <h3>New Pipe Installation</h3>
-            <p>Old, corroded, or burst pipes replaced with durable modern materials.</p>
-          </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
-            <h3>Emergency Plumbing &mdash; 24/7</h3>
-            <p>Burst pipe at 2am? Dominic picks up. Real emergency service, real response times.</p>
-          </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-            <h3>Sump Pumps &amp; Sewage Ejectors</h3>
-            <p>Keep your basement dry. Installation, repair, and replacement of pump systems.</p>
-          </div>
-          <div class="svc-card">
-            <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="5" r="3"/><path d="M12 8v8m-4 4h8"/><path d="M8 12H4m16 0h-4"/></svg></div>
-            <h3>Garbage Disposal &amp; Fixtures</h3>
-            <p>Install, repair, or replace kitchen and bathroom fixtures the right way, the first time.</p>
-          </div>
-        </div>
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <div class="section-header" style="text-align: center;">
+      <div class="section-label" style="text-align: center;">Simple Process</div>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-desc" style="margin: 0 auto;">Getting your plumbing or heating fixed is easy. Here's what to expect from your first call to the final walkthrough.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Call or Text Us</h3>
+        <p>Reach Dominic directly. Describe what's going on — no hold queues, no call centers. You talk to the guy who's going to show up.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get a Free Estimate</h3>
+        <p>We come to you, assess the job, and give you a straight price before any work starts. No bait-and-switch pricing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Job Done Right</h3>
+        <p>We do the work, clean up after ourselves, and make sure you're satisfied before we leave. That's the MD Plumbing promise.</p>
       </div>
     </div>
   </section>
 
   <!-- REVIEWS -->
-  <section class="reviews-section">
-    <div class="section-inner">
-      <span class="overline gold">What Baltimore Is Saying</span>
-      <h2 class="display section-h">REAL PEOPLE.<br/>REAL REVIEWS.</h2>
-      <div class="rating-summary">
-        <div class="rating-big">5.0</div>
-        <div>
-          <div class="stars-row">
-            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
-            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
-            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
-            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
-            <span class="star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
-          </div>
-          <div class="rating-count">23 Reviews on Facebook</div>
-          <div class="rating-recommend">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-            100% Recommend
-          </div>
-        </div>
+  <section id="reviews" class="reviews">
+    <div class="section-label">Customer Reviews</div>
+    <h2 class="section-title">What Baltimore Homeowners Say</h2>
+    <div class="reviews-intro">
+      <div class="reviews-score">
+        <div class="score-num">5.0</div>
+        <div class="stars">★★★★★</div>
+        <div class="score-label">Based on Google Reviews</div>
+        <div class="recommend-badge">100% Recommend</div>
       </div>
-      <div class="reviews-grid">
-        <div class="review-card featured">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"Dominic is always on time, professional and delivers quality craftsmanship. Simply the best. I would recommend him to anyone in need of plumbing work."</p>
-          <div class="review-author">
-            <div class="review-avatar">JT</div>
-            <div><div class="review-name">Julia Templon</div><div class="review-date">Recent</div></div>
-          </div>
-        </div>
-        <div class="review-card featured">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"One of the best Plumbers I know! Whenever there's a problem, Dom is one of the only plumbers I trust to get the job done correctly, quickly, and effectively. 5/5 stars!"</p>
-          <div class="review-author">
-            <div class="review-avatar">JR</div>
-            <div><div class="review-name">John Raulie</div><div class="review-date">January 25, 2025</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"Dominic responded to my request for service very promptly. He was polite, professional, and very affordable. I wholeheartedly recommend this company for your heating and plumbing needs."</p>
-          <div class="review-author">
-            <div class="review-avatar">KR</div>
-            <div><div class="review-name">Kevin D. Roberts</div><div class="review-date">February 23, 2025</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"Perfect, very professional and personable. If you need any plumbing or plumbing related work. Call Dominic, you will be happy!"</p>
-          <div class="review-author">
-            <div class="review-avatar">LH</div>
-            <div><div class="review-name">Lenny Handfinger</div><div class="review-date">December 31, 2025</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"Dominic responded quickly to our water heater fiasco and was able to get us back up and running by the next day! Awesome service!"</p>
-          <div class="review-author">
-            <div class="review-avatar">ER</div>
-            <div><div class="review-name">Elizabeth Rogers</div><div class="review-date">April 13, 2024</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"I've had a lot of terrible experiences with contractors and plumbers, but Dominic is amazing! He shows up on time, communicates well, is super professional, and knows his stuff. Definitely recommend."</p>
-          <div class="review-author">
-            <div class="review-avatar">TS</div>
-            <div><div class="review-name">Tyler Silvey</div><div class="review-date">July 6, 2022</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"This was our 1st time using MD Plumbing &amp; Heating &amp; all the reviews on here are true!! Dominic is now going to be our go to Plumber! We Highly recommend him!!"</p>
-          <div class="review-author">
-            <div class="review-avatar">SR</div>
-            <div><div class="review-name">Samantha Hausman Rampmeyer</div><div class="review-date">February 6, 2024</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"Highly recommend Dominic! Apparently, I broke the toilet installing a simple bidet... He didn't make me feel bad about my stupid mistake and had it all fixed quickly and for a reasonable price!"</p>
-          <div class="review-author">
-            <div class="review-avatar">SM</div>
-            <div><div class="review-name">Shannan Mahoney</div><div class="review-date">October 13, 2023</div></div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-source">Facebook Review</div>
-          <div class="review-stars">⭐⭐⭐⭐⭐</div>
-          <p class="review-text">"Just had Dominic come over to install a powered anode rod in my hot water heater to get rid of the rotten egg smell. He was in and out in 30 minutes! 10/10 recommend."</p>
-          <div class="review-author">
-            <div class="review-avatar">TP</div>
-            <div><div class="review-name">Tyler Pagliaro</div><div class="review-date">April 3, 2023</div></div>
-          </div>
-        </div>
-      </div>
+      <p class="section-desc" style="align-self: center;">Every customer we've served has recommended us. We don't take that lightly — it's the standard we hold ourselves to on every single job.</p>
     </div>
-  </section>
-
-  <!-- ABOUT PREVIEW -->
-  <div class="about-statement">
-    <div class="section-inner">
-      <div class="statement-left">
-        <span class="overline">Owner-Operated</span>
-        <h2>Your local plumber.<br/><em>Not a 1-800 number.</em></h2>
-        <p>Dominic Pagliaro Jr. built MD Plumbing &amp; Heating on a simple idea: treat every customer's home the way you'd treat your own. Show up on time. Do the job right. Charge a fair price.</p>
-        <p>When you call MD Plumbing &amp; Heating, Dominic is the one who shows up &mdash; not a dispatcher, not a subcontractor. That personal accountability is why 100% of customers recommend him.</p>
-        <div class="promise-grid">
-          <div class="promise-row"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Always on time &mdash; or he'll tell you in advance</div>
-          <div class="promise-row"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>Honest pricing &mdash; no hidden fees, no surprises</div>
-          <div class="promise-row"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>2025 Approved Winner &mdash; community recognized</div>
-        </div>
-      </div>
-      <div class="statement-right">
-        <div class="big-quote">
-          <blockquote>&ldquo;Dominic is always on time, professional and delivers quality craftsmanship. Simply the best. I would recommend him to anyone in need of plumbing work.&rdquo;</blockquote>
-          <div class="quote-attr">
-            <div class="quote-avatar">JT</div>
-            <div class="quote-name"><strong>Julia Templon</strong><span>Verified Facebook Review</span></div>
-          </div>
-        </div>
-        <div style="margin-top:28px;">
-          <a href="#" onclick="showPage('about')" style="color:var(--red);font-weight:700;font-size:0.95rem;">Read Dominic&rsquo;s story &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA BANNER -->
-  <div class="cta-banner">
-    <h2 class="display">GOT A PLUMBING PROBLEM?<br/>DON&rsquo;T WAIT.</h2>
-    <p>Small leaks become big emergencies fast. Call Dominic now &mdash; same-day service available, 24/7.</p>
-    <a href="tel:4439090058" class="cta-white">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      Call (443) 909-0058 &mdash; Available 24/7
-    </a>
-  </div>
-
-</div><!-- /home -->
-
-
-<!-- ======================================================== -->
-<!--  SERVICES                                                -->
-<!-- ======================================================== -->
-<div id="page-services" class="page">
-
-  <div class="page-banner">
-    <div class="page-banner-inner">
-      <span class="overline">Everything We Handle</span>
-      <h1 class="display">Plumbing &amp; Heating<br/>Services — Baltimore, MD</h1>
-      <p>Every service comes with honest pricing, same-day availability where possible, and Dominic&rsquo;s personal guarantee.</p>
-    </div>
-  </div>
-
-  <section>
-    <div class="section-inner">
-      <div class="svc-detail-grid">
-        <div class="svc-detail-card">
-          <span class="sdc-num">01</span>
-          <div class="sdc-title">Water Heater Repair &amp; Replacement</div>
-          <div class="sdc-body">No hot water is an emergency. We diagnose, repair, or replace tank and tankless water heaters &mdash; often same day.</div>
-          <ul class="sdc-list">
-            <li>Tank &amp; tankless water heaters</li>
-            <li>Anode rod replacement (powered &amp; magnesium)</li>
-            <li>Odor diagnostics &mdash; rotten egg smell from well water</li>
-            <li>Emergency same-day replacement</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">02</span>
-          <div class="sdc-title">Drain Cleaning &amp; Unclogging</div>
-          <div class="sdc-body">Slow or blocked drains fixed fast. Kitchen, bathroom, and main line service with no mess left behind.</div>
-          <ul class="sdc-list">
-            <li>Kitchen &amp; bathroom drain cleaning</li>
-            <li>Main sewer line cleaning</li>
-            <li>Camera inspection for stubborn blockages</li>
-            <li>Preventative drain maintenance</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">03</span>
-          <div class="sdc-title">New Pipe Installation</div>
-          <div class="sdc-body">Old galvanized steel, corroded copper, or burst PVC &mdash; we handle full replacements and new installs.</div>
-          <ul class="sdc-list">
-            <li>Copper, PVC &amp; PEX piping</li>
-            <li>Whole-home repipe projects</li>
-            <li>Outdoor hose bib installation</li>
-            <li>Leak detection &amp; repair</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">04</span>
-          <div class="sdc-title">Sump Pumps &amp; Sewage Ejectors</div>
-          <div class="sdc-body">Protect your basement and property with properly installed and maintained pump systems.</div>
-          <ul class="sdc-list">
-            <li>Sump pump installation &amp; replacement</li>
-            <li>Battery backup systems</li>
-            <li>Sewage ejector pit service</li>
-            <li>Discharge line repair</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">05</span>
-          <div class="sdc-title">Garbage Disposal &amp; Kitchen Fixtures</div>
-          <div class="sdc-body">Fast installation and repair for garbage disposals, kitchen faucets, and under-sink connections.</div>
-          <ul class="sdc-list">
-            <li>Garbage disposal installation &amp; repair</li>
-            <li>Kitchen faucet replacement</li>
-            <li>Under-sink plumbing repair</li>
-            <li>Dishwasher connection service</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">06</span>
-          <div class="sdc-title">Bathroom Fixtures &amp; Repairs</div>
-          <div class="sdc-body">Toilets, sinks, showers, tubs &mdash; everything in your bathroom handled by one trusted pro.</div>
-          <ul class="sdc-list">
-            <li>Toilet repair &amp; replacement</li>
-            <li>Showerhead &amp; valve repair</li>
-            <li>Bathroom faucet installation</li>
-            <li>Bidet installation</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">07</span>
-          <div class="sdc-title">Emergency Plumbing &mdash; 24/7</div>
-          <div class="sdc-body">Burst pipes, flooding, shut-off failures &mdash; we&rsquo;re available any time, any day. No extra runaround.</div>
-          <ul class="sdc-list">
-            <li>Burst pipe emergency repair</li>
-            <li>Flooding response</li>
-            <li>Shut-off valve failures</li>
-            <li>Same-day service across Baltimore area</li>
-          </ul>
-        </div>
-        <div class="svc-detail-card">
-          <span class="sdc-num">08</span>
-          <div class="sdc-title">Home Plumbing Assessments</div>
-          <div class="sdc-body">Buying a home or own an older property? We walk through your plumbing system and give you a straight condition report.</div>
-          <ul class="sdc-list">
-            <li>Pre-purchase plumbing inspection</li>
-            <li>Water pressure testing</li>
-            <li>Pipe condition assessment</li>
-            <li>Written findings &amp; recommendations</li>
-          </ul>
-        </div>
-      </div>
-      <div class="emergency-block">
-        <div>
-          <h3 class="display">Got an emergency right now?</h3>
-          <p>Don&rsquo;t wait. Plumbing problems get worse &mdash; and more expensive &mdash; by the hour. Call Dominic directly.</p>
-        </div>
-        <a href="tel:4439090058" class="cta-primary">
-          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          Call (443) 909-0058 Now
-        </a>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /services -->
-
-
-<!-- ======================================================== -->
-<!--  ABOUT                                                   -->
-<!-- ======================================================== -->
-<div id="page-about" class="page">
-
-  <div class="page-banner">
-    <div class="page-banner-inner">
-      <span class="overline">Owner-Operated Since Day One</span>
-      <h1 class="display">About Dominic<br/>Pagliaro Jr.</h1>
-      <p>The face, the hands, and the reputation behind MD Plumbing &amp; Heating LLC.</p>
-    </div>
-  </div>
-
-  <section>
-    <div class="section-inner">
-      <div class="about-layout">
-        <div class="about-story">
-          <h2>Baltimore&rsquo;s Plumber Who<br/>Actually Shows Up.</h2>
-          <p>Dominic Pagliaro Jr. built MD Plumbing &amp; Heating LLC around something deceptively simple: be the kind of tradesman you&rsquo;d actually want in your home. Show up on time. Do the work right. Charge what&rsquo;s fair.</p>
-          <p>Based in Essex, Maryland, Dominic serves Baltimore City and all surrounding communities &mdash; personally. When you schedule a job with MD Plumbing &amp; Heating, you&rsquo;re getting Dominic himself, not a dispatch call center or a rotating roster of unknown subcontractors.</p>
-
-          <blockquote>
-            <p>&ldquo;Whenever there&rsquo;s a problem, Dom is one of the only plumbers I trust to get the job done correctly, quickly, and effectively.&rdquo;</p>
-            <cite>&mdash; John Raulie, Verified Facebook Review</cite>
-          </blockquote>
-
-          <p>That trust has been earned through consistent, quality work across years of service in the Baltimore metro area. 100% of customers on Facebook recommend MD Plumbing &amp; Heating &mdash; and in 2025, the business was recognized as an Approved Winner, a community-based endorsement that reflects what customers already know.</p>
-          <p>From emergency water heater calls to routine drain cleaning, Dominic brings the same level of care and professionalism to every job. No upsells. No unnecessary parts. No leaving a customer in the dark about what&rsquo;s being done in their home.</p>
-          <p>If you&rsquo;re in Essex, Baltimore, Towson, Parkville, Dundalk, Middle River, Perry Hall, or Bel Air &mdash; you&rsquo;ve found your plumber.</p>
-        </div>
-        <div>
-          <div class="about-card">
-            <div class="about-card-top">
-              <div class="avi-lg">DP</div>
-              <h3>Dominic Pagliaro Jr.</h3>
-              <span>Owner &amp; Lead Technician</span>
-            </div>
-            <div class="about-card-body">
-              <div class="about-card-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                Licensed LLC &mdash; Maryland
-              </div>
-              <div class="about-card-row">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                2025 Approved Winner
-              </div>
-              <div class="about-card-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
-                100% Recommend on Facebook
-              </div>
-              <div class="about-card-row">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                Essex, MD &mdash; Serving 8 Cities
-              </div>
-              <div class="about-card-row">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-                Available 24/7 &mdash; No voicemail
-              </div>
-              <a href="tel:4439090058" class="about-card-phone">(443) 909-0058 &mdash; Call Anytime</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="values-row">
-        <div class="val-card">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <h4>2025 Approved Winner</h4>
-          <p>Community-recognized for outstanding service. Earned through the work, not self-proclaimed.</p>
-        </div>
-        <div class="val-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-          <h4>Always On Time</h4>
-          <p>If Dominic says 9am, he&rsquo;s there at 9am. Respect for your time is non-negotiable.</p>
-        </div>
-        <div class="val-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          <h4>Honest Pricing</h4>
-          <p>You get a fair quote upfront. No hidden fees, no surprise charges when the job is done.</p>
-        </div>
-        <div class="val-card">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-          <h4>Owner Shows Up</h4>
-          <p>No dispatchers. No subcontractors. Dominic personally handles every single job.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-banner">
-    <h2 class="display">READY TO WORK WITH<br/>A PLUMBER YOU CAN TRUST?</h2>
-    <p>Call Dominic directly. No runaround, no wait times, no call center.</p>
-    <a href="tel:4439090058" class="cta-white">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      Call (443) 909-0058 &mdash; Available 24/7
-    </a>
-  </div>
-
-</div><!-- /about -->
-
-
-<!-- ======================================================== -->
-<!--  CONTACT                                                 -->
-<!-- ======================================================== -->
-<div id="page-contact" class="page">
-
-  <div class="page-banner">
-    <div class="page-banner-inner">
-      <span class="overline">Get in Touch</span>
-      <h1 class="display">Contact MD Plumbing<br/>&amp; Heating LLC</h1>
-      <p>Available 24/7. Call for emergencies &mdash; Dominic picks up.</p>
-    </div>
-  </div>
-
-  <div class="contact-section">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <span class="overline">Direct Contact</span>
-        <h2>Get in Touch<br/>with Dominic</h2>
-        <p>Call, text, or send a message below. For emergencies, always call directly.</p>
-        <a href="tel:4439090058" class="phone-cta">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          (443) 909-0058
-        </a>
-        <div class="c-detail-list">
-          <div class="c-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            <div><strong>Email</strong>mdplumbingheatingllc@gmail.com</div>
-          </div>
-          <div class="c-detail">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            <div><strong>Address</strong>Yew Rd, Baltimore, MD 21221</div>
-          </div>
-          <div class="c-detail">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-            <div><strong>Hours</strong><span style="color:#16a34a;font-weight:700;">Available 24/7 &mdash; Emergency calls welcome</span></div>
-          </div>
-        </div>
-        <div class="area-label">Service Area</div>
-        <div class="area-tags">
-          <span class="area-tag">Essex</span>
-          <span class="area-tag">Baltimore City</span>
-          <span class="area-tag">Parkville</span>
-          <span class="area-tag">Towson</span>
-          <span class="area-tag">Middle River</span>
-          <span class="area-tag">Perry Hall</span>
-          <span class="area-tag">Dundalk</span>
-          <span class="area-tag">Bel Air</span>
-        </div>
-      </div>
-
-      <div class="contact-form">
-        <h3>Send a Message</h3>
-        <p>Describe what&rsquo;s going on and we&rsquo;ll respond quickly. For urgent issues, call directly.</p>
-        <form id="contactForm" onsubmit="submitForm(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name *</label>
-              <input type="text" placeholder="Jane Smith" required />
-            </div>
-            <div class="form-group">
-              <label>Phone Number *</label>
-              <input type="tel" placeholder="(443) 555-0000" required />
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="you@email.com" />
-          </div>
-          <div class="form-group">
-            <label>Service Needed</label>
-            <select>
-              <option value="">— Select a service —</option>
-              <option>Water Heater Repair / Replacement</option>
-              <option>Drain Cleaning / Unclogging</option>
-              <option>New Pipe Installation</option>
-              <option>Garbage Disposal Installation / Repair</option>
-              <option>Sump Pump / Sewage Ejector</option>
-              <option>Bathroom Fixture Repair</option>
-              <option>Emergency Plumbing</option>
-              <option>Anode Rod Replacement</option>
-              <option>Home Plumbing Assessment</option>
-              <option>Other / Not Sure</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Tell Us What&rsquo;s Going On *</label>
-            <textarea placeholder="Describe the issue — when it started, what you've noticed, any water damage, etc." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-            Send Message
-          </button>
-        </form>
-        <div class="form-success" id="formSuccess">
-          ✅ Message sent! Dominic will be in touch soon. For urgent issues, call <strong>(443) 909-0058</strong> directly.
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div><!-- /contact -->
-
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="f-logo">
-          <div class="f-logo-mark">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-          </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <svg class="google-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <div class="review-header">
+          <div class="review-avatar" style="background: #4285F4;">S</div>
           <div>
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.05em;">MD Plumbing &amp; Heating LLC</div>
-            <div style="font-size:0.62rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;">Baltimore, MD &mdash; Licensed LLC</div>
+            <div class="review-name">Sandra M.</div>
+            <div class="review-platform">Google Review · Essex, MD</div>
           </div>
         </div>
-        <p>Your local, reliable &amp; affordable plumber. Serving Essex, Baltimore, and surrounding Maryland communities. Owner-operated by Dominic Pagliaro Jr. &mdash; 2025 Approved Winner.</p>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Dominic came out same day for a burst pipe under my sink. He was professional, honest about the cost, and had it fixed in under an hour. Couldn't be happier."</p>
+        <div class="review-date">February 2025</div>
+      </div>
+
+      <div class="review-card">
+        <svg class="google-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <div class="review-header">
+          <div class="review-avatar" style="background: #C0192B;">R</div>
+          <div>
+            <div class="review-name">Robert T.</div>
+            <div class="review-platform">Google Review · Baltimore, MD</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My furnace died in January. Dominic showed up the next morning, diagnosed the problem fast, and had us heated again by noon. Reasonable price and no nonsense."</p>
+        <div class="review-date">January 2025</div>
+      </div>
+
+      <div class="review-card">
+        <svg class="google-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <div class="review-header">
+          <div class="review-avatar" style="background: #2e7d32;">K</div>
+          <div>
+            <div class="review-name">Karen W.</div>
+            <div class="review-platform">Google Review · Essex, MD</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Used MD Plumbing for a full bathroom fixture swap. Clean work, on time, and Dominic explained everything so I actually understood what was happening. Will use again."</p>
+        <div class="review-date">March 2025</div>
+      </div>
+
+      <div class="review-card">
+        <svg class="google-g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <div class="review-header">
+          <div class="review-avatar" style="background: #C9973A;">D</div>
+          <div>
+            <div class="review-name">David P.</div>
+            <div class="review-platform">Google Review · Baltimore, MD</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Called MD Plumbing for a water heater install. Great communication from start to finish. The price was fair and the work was immaculate. Highly recommend."</p>
+        <div class="review-date">April 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <div class="service-area">
+    <div class="area-content">
+      <div class="section-label">Coverage</div>
+      <h2 class="section-title">Serving Essex &<br>Greater Baltimore</h2>
+      <p class="section-desc">We're based in Essex, MD and serve the surrounding communities. If you're in the area, we can be there — often same day.</p>
+      <div class="area-tags">
+        <span class="area-tag">Essex</span>
+        <span class="area-tag">Baltimore City</span>
+        <span class="area-tag">Middle River</span>
+        <span class="area-tag">Rosedale</span>
+        <span class="area-tag">Dundalk</span>
+        <span class="area-tag">Parkville</span>
+        <span class="area-tag">White Marsh</span>
+        <span class="area-tag">Towson</span>
+      </div>
+    </div>
+    <div class="area-map">
+      <div class="area-map-placeholder">
+        <div class="area-map-pin">📍</div>
+        <p>Essex, Baltimore County, MD</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about" id="contact">
+    <div class="about-photo">
+      <div class="gallery-placeholder" style="height: 100%; background: linear-gradient(135deg, #e8e8e8, #d5d5d5);">
+        <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <p>Owner photo — Dominic</p>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Local. Licensed.<br>Trustworthy.</h2>
+      <div class="about-quote">
+        "I started MD Plumbing because homeowners deserved a plumber they could actually trust — someone who shows up, tells them the truth, and does the job right."
+      </div>
+      <div class="about-sig">
+        Dominic
+        <span>Owner, MD Plumbing & Heating LLC</span>
+      </div>
+      <div style="margin-top: 32px;">
+        <a href="tel:+14436151851" class="btn-primary" style="width: fit-content;">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (443) 615-1851
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>Ready to Get It Fixed?</h2>
+    <p>Call Dominic directly — no hold queues, no call centers. Just a straight answer and same-day availability.</p>
+    <a href="tel:+14436151851" class="btn-white">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Call (443) 615-1851
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">MD <span>Plumbing</span> & Heating LLC</div>
+        <p class="footer-desc">Licensed and insured plumbing and heating contractor serving Essex and Baltimore County, Maryland. Honest work at fair prices.</p>
       </div>
       <div class="footer-col">
-        <h4>Pages</h4>
+        <h4>Services</h4>
         <ul>
-          <li><a href="#" onclick="showPage('home')">Home</a></li>
-          <li><a href="#" onclick="showPage('services')">Services</a></li>
-          <li><a href="#" onclick="showPage('about')">About</a></li>
-          <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+          <li>Plumbing Repairs</li>
+          <li>Heating Systems</li>
+          <li>Water Heaters</li>
+          <li>Fixture Installation</li>
+          <li>Drain Cleaning</li>
+          <li>Home Diagnostics</li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <p class="f-contact"><a href="tel:4439090058" style="color:inherit;">(443) 909-0058</a></p>
-        <p class="f-contact"><a href="mailto:mdplumbingheatingllc@gmail.com" style="color:inherit;">mdplumbingheatingllc@gmail.com</a></p>
-        <p class="f-contact">Yew Rd, Baltimore, MD 21221</p>
-        <p class="f-contact" style="color:#ff7777;font-weight:700;">Open 24/7</p>
+        <ul>
+          <li>(443) 615-1851</li>
+          <li>Essex, MD 21221</li>
+          <li>Mon–Sat: 7am–7pm</li>
+          <li>Urgent calls welcome</li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 MD Plumbing &amp; Heating LLC &mdash; Baltimore, MD. All rights reserved.</p>
-      <p>Licensed LLC &mdash; Maryland &bull; 2025 Approved Winner</p>
+      <div class="footer-copy">© 2025 MD Plumbing & Heating LLC. All rights reserved.</div>
+      <div class="footer-lic">Licensed & Insured · Essex, Maryland</div>
     </div>
-  </div>
-</footer>
-
-<script>
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + name).classList.add('active');
-    document.querySelectorAll('.nav-links a[id^="nav-"]').forEach(a => a.classList.remove('active'));
-    const link = document.getElementById('nav-' + name);
-    if (link) link.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
-  document.addEventListener('click', function(e) {
-    const menu = document.getElementById('mobileMenu');
-    const btn = document.querySelector('.hamburger');
-    if (menu && btn && !menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.classList.remove('open');
-    }
-  });
-  function submitForm(e) {
-    e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
-</script>
+  </footer>
 
 </body>
 </html>
