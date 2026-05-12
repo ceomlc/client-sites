@@ -621,25 +621,17 @@
       font-weight: 500;
     }
     .area-map {
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 340px;
       position: relative;
+      min-height: 340px;
       overflow: hidden;
     }
-    .area-map-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      color: #555;
-    }
-    .area-map-placeholder p { font-size: 0.85rem; }
-    .area-map-pin {
-      font-size: 3rem;
-      filter: drop-shadow(0 4px 12px rgba(192,25,43,0.4));
+    .area-map iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      border: none;
+      display: block;
+      filter: grayscale(20%) contrast(1.05);
     }
     @media (max-width: 768px) {
       .service-area { grid-template-columns: 1fr; }
@@ -1060,10 +1052,12 @@
       </div>
     </div>
     <div class="area-map">
-      <div class="area-map-placeholder">
-        <div class="area-map-pin">📍</div>
-        <p>Essex, Baltimore County, MD</p>
-      </div>
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-76.55%2C39.27%2C-76.35%2C39.35&layer=mapnik&marker=39.3101%2C-76.4530"
+        title="MD Plumbing & Heating — Essex, Baltimore County, MD"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 
