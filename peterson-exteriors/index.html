@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peterson Exteriors LLC — Roofing, Waterproofing & More | Essex, MD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0d0d0d;
+    --charcoal: #1a1a1a;
+    --green: #72b832;
+    --green-dark: #5a9425;
+    --green-glow: rgba(114,184,50,0.18);
+    --orange: #e87820;
+    --white: #ffffff;
+    --gray: #b0b0b0;
+    --light-gray: #f0f0f0;
+    --border: #2a2a2a;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Open Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--black);
+    border-bottom: 3px solid var(--green);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .nav-logo-text .brand { font-family: 'Anton', sans-serif; font-size: 1.1rem; color: var(--white); letter-spacing: 1px; }
+  .nav-logo-text .sub { font-size: 0.65rem; color: var(--green); text-transform: uppercase; letter-spacing: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--green);
+    color: var(--black) !important;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green-dark) !important; color: var(--white) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    background: var(--black);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 5%;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(114,184,50,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green) 0%, var(--orange) 50%, var(--green) 100%);
+  }
+  .hero-text { position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-glow);
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before { content: '✦'; }
+  .hero h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .hero h1 .accent { color: var(--green); }
+  .hero-sub {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-family: 'Anton', sans-serif;
+    color: var(--orange);
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 36px;
+  }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+  .btn-outline {
+    border: 2px solid var(--white);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+  .hero-trust {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .trust-number {
+    font-family: 'Anton', sans-serif;
+    font-size: 2rem;
+    color: var(--green);
+    line-height: 1;
+  }
+  .trust-label { font-size: 0.7rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .hero-photo-main {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--charcoal);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    position: relative;
+  }
+  .hero-photo-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-photo-main .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #444;
+  }
+  .hero-photo-main .photo-placeholder span { font-size: 2.5rem; }
+  .hero-photo-main .photo-placeholder p { font-size: 0.8rem; }
+  .hero-photo-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-photo-sm {
+    aspect-ratio: 1;
+    background: var(--charcoal);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+  }
+  .hero-photo-sm img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-photo-sm .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #444;
+  }
+  .hero-photo-sm .photo-placeholder span { font-size: 1.8rem; }
+  .hero-photo-sm .photo-placeholder p { font-size: 0.7rem; }
+
+  /* SERVICES */
+  .services {
+    padding: 100px 5%;
+    background: var(--charcoal);
+    position: relative;
+  }
+  .services::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--green), var(--orange), var(--green));
+  }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    color: var(--gray);
+    font-size: 1rem;
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 60px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .service-card {
+    background: var(--black);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--green);
+    transition: width 0.4s ease;
+  }
+  .service-card:hover::after { width: 100%; }
+  .service-card:hover { border-color: var(--green); background: #111; }
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .service-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .service-desc { color: var(--gray); font-size: 0.88rem; line-height: 1.7; }
+  .service-list {
+    margin-top: 14px;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .service-list li {
+    color: #888;
+    font-size: 0.8rem;
+    padding-left: 16px;
+    position: relative;
+  }
+  .service-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+  }
+
+  /* GAF BAND */
+  .gaf-band {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  .gaf-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .gaf-icon { font-size: 2rem; }
+  .gaf-text .gaf-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+  .gaf-text .gaf-sub { font-size: 0.72rem; color: var(--gray); }
+  .gaf-divider { width: 1px; height: 40px; background: var(--border); }
+
+  /* GALLERY */
+  .gallery {
+    padding: 100px 5%;
+    background: var(--black);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 12px;
+  }
+  .gallery-item {
+    background: var(--charcoal);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .gallery-item.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    min-height: 200px;
+  }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-item .photo-placeholder {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #444;
+    padding: 20px;
+  }
+  .gallery-item.featured .photo-placeholder { min-height: 400px; }
+  .gallery-item .photo-placeholder span { font-size: 2rem; }
+  .gallery-item .photo-placeholder p { font-size: 0.75rem; text-align: center; }
+  .gallery-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    padding: 20px 14px 12px;
+    font-size: 0.75rem;
+    color: var(--white);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* PROCESS */
+  .process {
+    padding: 100px 5%;
+    background: var(--charcoal);
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 60px;
+    position: relative;
+  }
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green), var(--orange));
+    z-index: 0;
+  }
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .step-num {
+    width: 72px;
+    height: 72px;
+    background: var(--green);
+    color: var(--black);
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border: 4px solid var(--charcoal);
+  }
+  .step-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .step-desc { color: var(--gray); font-size: 0.85rem; line-height: 1.6; }
+
+  /* REVIEWS */
+  .reviews {
+    padding: 100px 5%;
+    background: var(--black);
+  }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .review-card {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 36px;
+    position: relative;
+  }
+  .review-card::before {
+    content: '"';
+    font-family: 'Anton', sans-serif;
+    font-size: 6rem;
+    color: var(--green);
+    opacity: 0.15;
+    position: absolute;
+    top: 10px;
+    left: 24px;
+    line-height: 1;
+  }
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 16px;
+  }
+  .stars span { color: var(--green); font-size: 1.1rem; }
+  .review-text {
+    font-size: 1rem;
+    color: var(--white);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+  }
+  .reviewer-info .name { font-weight: 700; font-size: 0.9rem; color: var(--white); }
+  .reviewer-info .source { font-size: 0.75rem; color: var(--gray); }
+  .rating-band {
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .rating-stat .num {
+    font-family: 'Anton', sans-serif;
+    font-size: 3.5rem;
+    color: var(--green);
+    line-height: 1;
+  }
+  .rating-stat .label { color: var(--gray); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; }
+  .rating-divider { width: 1px; height: 60px; background: var(--border); }
+
+  /* AREA */
+  .area {
+    padding: 100px 5%;
+    background: var(--charcoal);
+  }
+  .area-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .area-map {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+  }
+  .area-map iframe {
+    width: 100%;
+    height: 380px;
+    border: none;
+    display: block;
+    filter: grayscale(30%) invert(95%) hue-rotate(180deg);
+  }
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .area-tag {
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 7px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .area-cta {
+    margin-top: 36px;
+    background: var(--green);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: background 0.2s;
+  }
+  .area-cta:hover { background: var(--green-dark); }
+
+  /* CONTACT */
+  .contact {
+    padding: 100px 5%;
+    background: var(--black);
+  }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-details { display: flex; flex-direction: column; gap: 32px; margin-top: 40px; }
+  .contact-item { display: flex; gap: 18px; align-items: flex-start; }
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--green-glow);
+    border: 1px solid var(--green);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .contact-info .label { font-size: 0.7rem; color: var(--green); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+  .contact-info .value { font-size: 1.05rem; color: var(--white); font-weight: 600; margin-top: 2px; }
+  .contact-info a { color: var(--white); text-decoration: none; }
+  .contact-info a:hover { color: var(--green); }
+
+  .contact-form { background: var(--charcoal); border: 1px solid var(--border); border-radius: 8px; padding: 40px; }
+  .form-title { font-family: 'Anton', sans-serif; font-size: 1.6rem; color: var(--white); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .form-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 28px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .form-group label { font-size: 0.75rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--black);
+    border: 1px solid var(--border);
+    color: var(--white);
+    padding: 12px 14px;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: var(--charcoal); }
+  .form-submit {
+    width: 100%;
+    background: var(--green);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Open Sans', sans-serif;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--green-dark); }
+
+  /* FOOTER */
+  footer {
+    background: #080808;
+    border-top: 3px solid var(--green);
+    padding: 40px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-brand .name {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .footer-brand .tagline { font-size: 0.75rem; color: var(--green); margin-top: 2px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-links a:hover { color: var(--green); }
+  .footer-copy { color: #444; font-size: 0.75rem; width: 100%; }
+
+  /* MOBILE NAV */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-bottom: 3px solid var(--green);
+    padding: 24px 5%;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 99;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .mobile-nav a:last-child { border-bottom: none; color: var(--green); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.featured { grid-column: span 1; grid-row: span 1; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); }
+    .process-steps::before { display: none; }
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 60px 5% 40px; }
+    .hero-visual { display: none; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .area-inner { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .gaf-band { gap: 28px; }
+    .gaf-divider { display: none; }
+    .rating-band { gap: 28px; }
+    .rating-divider { display: none; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="Peterson Exteriors LLC" onerror="this.style.display='none'">
+    <div class="nav-logo-text">
+      <span class="brand">Peterson Exteriors</span>
+      <span class="sub">formerly R&P Roofing LLC</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#area">Coverage</a>
+    <a href="#contact" class="nav-cta">Free Inspection</a>
+  </div>
+  <div class="hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="this.closest('.mobile-nav').classList.remove('open')">Services</a>
+  <a href="#gallery" onclick="this.closest('.mobile-nav').classList.remove('open')">Gallery</a>
+  <a href="#reviews" onclick="this.closest('.mobile-nav').classList.remove('open')">Reviews</a>
+  <a href="#area" onclick="this.closest('.mobile-nav').classList.remove('open')">Coverage</a>
+  <a href="#contact" onclick="this.closest('.mobile-nav').classList.remove('open')">Free Inspection →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Essex, Maryland — Family Owned &amp; Operated</div>
+    <h1>BUILT TO <span class="accent">PROTECT.</span><br>BUILT TO LAST.</h1>
+    <div class="hero-sub">Licensed &amp; Insured</div>
+    <p class="hero-desc">
+      Peterson Exteriors LLC handles everything your home's exterior needs — from full roof replacements and basement waterproofing to siding, concrete work, and custom shed builds. One crew. One call. Done right.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:4109678429" class="btn-primary">📞 (410) 967-8429</a>
+      <a href="#contact" class="btn-outline">Free Inspection</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <span class="trust-number">6+</span>
+        <span class="trust-label">Services<br>Offered</span>
+      </div>
+      <div style="width:1px;height:50px;background:var(--border);align-self:center;"></div>
+      <div class="trust-item">
+        <span class="trust-number">100%</span>
+        <span class="trust-label">Recommend<br>Rate</span>
+      </div>
+      <div style="width:1px;height:50px;background:var(--border);align-self:center;"></div>
+      <div class="trust-item">
+        <span class="trust-number">GAF</span>
+        <span class="trust-label">Certified<br>Materials</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-photo-main">
+      <div class="photo-placeholder">
+        <span>🏠</span>
+        <p>Roofing / Exterior Photo</p>
+      </div>
+    </div>
+    <div class="hero-photo-row">
+      <div class="hero-photo-sm">
+        <div class="photo-placeholder">
+          <span>🔧</span>
+          <p>Job Site</p>
+        </div>
+      </div>
+      <div class="hero-photo-sm">
+        <div class="photo-placeholder">
+          <span>🏗️</span>
+          <p>Completed Work</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">6 WAYS WE PROTECT YOUR HOME</div>
+  <p class="section-desc">From your roofline to your foundation, we handle the jobs that keep Baltimore County homes standing strong — no subcontractors, no runaround.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <div class="service-name">Roofing</div>
+      <p class="service-desc">Residential roof replacement and repair using GAF-certified materials — the same system new home builders trust.</p>
+      <ul class="service-list">
+        <li>Lifetime Shingles</li>
+        <li>Tiger Paw Underlayment</li>
+        <li>Cobra® Attic Ventilation</li>
+        <li>Leak Barrier System</li>
+        <li>Ridge Cap & Starter Strips</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">💧</span>
+      <div class="service-name">Basement Waterproofing</div>
+      <p class="service-desc">Stop water intrusion at the source with complete waterproofing systems — not just band-aids.</p>
+      <ul class="service-list">
+        <li>Drain Tile Systems</li>
+        <li>Sump Pump Installation</li>
+        <li>Foundation Crack Repair</li>
+        <li>Crawlspace Moisture Solutions</li>
+        <li>Water Intrusion Repairs</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏡</span>
+      <div class="service-name">Siding</div>
+      <p class="service-desc">New siding installation to boost curb appeal, improve insulation, and protect against Baltimore's weather.</p>
+      <ul class="service-list">
+        <li>Full siding replacement</li>
+        <li>Partial repair</li>
+        <li>Multiple material options</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏗️</span>
+      <div class="service-name">Site Prep</div>
+      <p class="service-desc">Land clearing and site preparation for new construction, additions, and outdoor projects.</p>
+      <ul class="service-list">
+        <li>Land clearing</li>
+        <li>Grading</li>
+        <li>Debris removal</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛖</span>
+      <div class="service-name">Shed Builds</div>
+      <p class="service-desc">Custom shed and structure installations built to last — from weekend storage sheds to full gazebo builds.</p>
+      <ul class="service-list">
+        <li>Gazebos & Trellises</li>
+        <li>Wood frame bases</li>
+        <li>Stone perimeter bases</li>
+        <li>Concrete pad foundations</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🪨</span>
+      <div class="service-name">Concrete &amp; Gravel</div>
+      <p class="service-desc">Driveways, walkways, and pads — functional hardscaping that holds up to Baltimore winters.</p>
+      <ul class="service-list">
+        <li>Gravel driveways</li>
+        <li>Concrete pads</li>
+        <li>Walkways</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GAF TRUST BAND -->
+<div class="gaf-band">
+  <div class="gaf-item">
+    <span class="gaf-icon">🏅</span>
+    <div class="gaf-text">
+      <div class="gaf-title">GAF CERTIFIED MATERIALS</div>
+      <div class="gaf-sub">Lifetime roofing systems on every job</div>
+    </div>
+  </div>
+  <div class="gaf-divider"></div>
+  <div class="gaf-item">
+    <span class="gaf-icon">🛡️</span>
+    <div class="gaf-text">
+      <div class="gaf-title">FULLY LICENSED &amp; INSURED</div>
+      <div class="gaf-sub">Maryland residential contractor</div>
+    </div>
+  </div>
+  <div class="gaf-divider"></div>
+  <div class="gaf-item">
+    <span class="gaf-icon">🔍</span>
+    <div class="gaf-text">
+      <div class="gaf-title">FREE INSPECTION</div>
+      <div class="gaf-sub">No obligation, honest assessment</div>
+    </div>
+  </div>
+  <div class="gaf-divider"></div>
+  <div class="gaf-item">
+    <span class="gaf-icon">👨‍👩‍👧</span>
+    <div class="gaf-text">
+      <div class="gaf-title">FAMILY OWNED &amp; OPERATED</div>
+      <div class="gaf-sub">Essex, Maryland — local since day one</div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-label">Our Work</div>
+  <div class="section-title">RECENT PROJECTS</div>
+  <p class="section-desc" style="margin-bottom:40px;">Every job is a reflection of our name. Here's what we've been building across Baltimore County.</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item featured">
+      <div class="photo-placeholder">
+        <span>🏠</span>
+        <p>Full Roof Replacement</p>
+      </div>
+      <div class="gallery-label">Full Roof Replacement — Essex, MD</div>
+    </div>
+    <div class="gallery-item">
+      <div class="photo-placeholder">
+        <span>💧</span>
+        <p>Basement Waterproofing</p>
+      </div>
+      <div class="gallery-label">Basement Waterproofing</div>
+    </div>
+    <div class="gallery-item">
+      <div class="photo-placeholder">
+        <span>🏡</span>
+        <p>Siding Installation</p>
+      </div>
+      <div class="gallery-label">Siding Install</div>
+    </div>
+    <div class="gallery-item">
+      <div class="photo-placeholder">
+        <span>🛖</span>
+        <p>Custom Shed Build</p>
+      </div>
+      <div class="gallery-label">Custom Shed Build</div>
+    </div>
+    <div class="gallery-item">
+      <div class="photo-placeholder">
+        <span>🪨</span>
+        <p>Gravel Driveway</p>
+      </div>
+      <div class="gallery-label">Gravel Driveway</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">FROM CALL TO COMPLETE</div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <div class="step-title">Free Inspection</div>
+      <p class="step-desc">We come to you, assess the job, and give you an honest evaluation — no pressure, no upsells.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <div class="step-title">Clear Quote</div>
+      <p class="step-desc">You get a straightforward written estimate. No hidden fees. No surprises at the end.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <div class="step-title">Scheduled Work</div>
+      <p class="step-desc">We show up on time, keep your property clean, and stay on schedule.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <div class="step-title">Job Done Right</div>
+      <p class="step-desc">We don't leave until the work is complete and you're satisfied. That's the Peterson standard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-label">What Customers Say</div>
+  <div class="section-title">5-STAR RATED</div>
+
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"R &amp; P Roofing does AMAZING work and you can't beat their prices. Very honest and friendly customer service too! I would definitely give them a 5 star rating!"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">T</div>
+        <div class="reviewer-info">
+          <div class="name">Tammy Trent-Mcneal</div>
+          <div class="source">Facebook Review · Verified</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <p class="review-text">"Recommends Peterson Exteriors LLC formerly R&amp;P Roofing. Quality workmanship, showed up when they said they would, and treated our home with respect. Would absolutely hire again."</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">C</div>
+        <div class="reviewer-info">
+          <div class="name">Christine Urbach</div>
+          <div class="source">Facebook Review · Verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rating-band">
+    <div class="rating-stat">
+      <div class="num">5.0</div>
+      <div class="label">Average Rating</div>
+    </div>
+    <div class="rating-divider"></div>
+    <div class="rating-stat">
+      <div class="num">100%</div>
+      <div class="label">Recommend Rate</div>
+    </div>
+    <div class="rating-divider"></div>
+    <div class="rating-stat">
+      <div class="num">289</div>
+      <div class="label">Facebook Followers</div>
+    </div>
+    <div class="rating-divider"></div>
+    <div class="rating-stat">
+      <div class="num">174</div>
+      <div class="label">Post Reactions</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area" id="area">
+  <div class="section-label">Coverage</div>
+  <div class="section-title">SERVING BALTIMORE COUNTY</div>
+  <div class="area-inner">
+    <div>
+      <p class="section-desc" style="margin-bottom:0;">Based in Essex — we serve the surrounding communities across Baltimore County. If you're nearby, we can be there fast.</p>
+      <div class="area-tags">
+        <span class="area-tag">Essex</span>
+        <span class="area-tag">Middle River</span>
+        <span class="area-tag">Dundalk</span>
+        <span class="area-tag">White Marsh</span>
+        <span class="area-tag">Rosedale</span>
+        <span class="area-tag">Parkville</span>
+        <span class="area-tag">Baltimore City</span>
+        <span class="area-tag">Surrounding Areas</span>
+      </div>
+      <a href="#contact" class="area-cta">Get a Free Inspection →</a>
+    </div>
+    <div class="area-map">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-76.55%2C39.27%2C-76.35%2C39.35&layer=mapnik&marker=39.3101%2C-76.4530"
+        title="Peterson Exteriors LLC — Essex, Baltimore County, MD"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">Get In Touch</div>
+  <div class="section-title">SCHEDULE YOUR FREE INSPECTION</div>
+  <div class="contact-inner">
+    <div>
+      <p style="color:var(--gray);font-size:1rem;line-height:1.7;margin-bottom:8px;">
+        Ready to protect your home? Call us or fill out the form and we'll get back to you within 24 hours to set up a free, no-obligation inspection.
+      </p>
+      <div class="contact-details">
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <div class="label">Phone</div>
+            <div class="value"><a href="tel:4109678429">(410) 967-8429</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:info@exteriors1.com">info@exteriors1.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <div class="label">Address</div>
+            <div class="value">6630 Kenwood Ave<br>Baltimore, MD 21237</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-info">
+            <div class="label">Website</div>
+            <div class="value"><a href="https://exteriors1.com">exteriors1.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-title">Request Inspection</div>
+      <p class="form-sub">Free · No Obligation · We'll Call You Within 24 Hours</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(410) 555-0000">
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Roofing</option>
+          <option>Basement Waterproofing</option>
+          <option>Siding</option>
+          <option>Site Prep</option>
+          <option>Shed Build</option>
+          <option>Concrete &amp; Gravel</option>
+          <option>Not Sure / Need Inspection</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell Us About Your Project</label>
+        <textarea placeholder="Describe what you need..."></textarea>
+      </div>
+      <button class="form-submit">Submit — Get My Free Inspection</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="name">Peterson Exteriors LLC</div>
+    <div class="tagline">Formerly R&amp;P Roofing · Essex, Maryland</div>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Peterson Exteriors LLC. All rights reserved. · 6630 Kenwood Ave, Baltimore, MD 21237 · (410) 967-8429</div>
+</footer>
+
+</body>
+</html>
